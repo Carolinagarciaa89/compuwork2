@@ -1,3 +1,5 @@
+package compuwork;
+
 import java.util.Scanner;
 
 class Main {
@@ -61,17 +63,19 @@ class Main {
 
             } else if (opcion.equals("5")) {
                 System.out.print("id departamento: "); String idDepartamento = scanner.nextLine();
-                System.out.print("nombre departamento: "); String nombreDepartamento = scanner.nextLine();
-                System.out.print("ubicacion: "); String ubicacion = scanner.nextLine();
+                Departamento departamento = controlador.buscarDepartamentoPorId(idDepartamento);
 
-                Departamento departamento = new Departamento(idDepartamento, nombreDepartamento, ubicacion);
-                System.out.print("codigo reporte: "); String codigo = scanner.nextLine();
-                System.out.print("volumen proyectos: "); int volumen = Integer.parseInt(scanner.nextLine());
-                System.out.print("periodo: "); String periodo = scanner.nextLine();
-                System.out.print("tasa resolucion: "); float tasa = Float.parseFloat(scanner.nextLine());
+                if (departamento == null) {
+                    System.out.println("Departamento no existe.");
+                } else {
+                    System.out.print("codigo reporte: "); String codigo = scanner.nextLine();
+                    System.out.print("volumen proyectos: "); int volumen = Integer.parseInt(scanner.nextLine());
+                    System.out.print("periodo: "); String periodo = scanner.nextLine();
+                    System.out.print("tasa resolucion: "); float tasa = Float.parseFloat(scanner.nextLine());
 
-                departamento.generarReporteDepartamento(codigo, volumen, periodo, tasa);
-                System.out.println("Reporte departamento generado: " + departamento.consultarReporteDepartamento(codigo));
+                    departamento.generarReporteDepartamento(codigo, volumen, periodo, tasa);
+                    System.out.println("Reporte departamento generado: " + departamento.consultarReporteDepartamento(codigo));
+                }
 
             } else if (opcion.equals("6")) {
                 ejecutar = false;
