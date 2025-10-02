@@ -1,3 +1,5 @@
+package compuwork;
+
 class EmpleadoTemporal extends Empleado {
     public static final String EMPL_TEMPORAL = "Temporal";
 
