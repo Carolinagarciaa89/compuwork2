@@ -1,3 +1,5 @@
+package compuwork;
+
 import java.time.LocalDate;
 
 class ReporteEmpleado {
