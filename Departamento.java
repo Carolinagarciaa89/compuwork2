@@ -1,3 +1,5 @@
+package compuwork;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,6 +18,10 @@ class Departamento {
         this.reportesDepartamento = new ArrayList<>();
     }
 
+    public String getIdDepartamento() { return idDepartamento; }
+    public String getNombreDepartamento() { return nombreDepartamento; }
+    public String getUbicacion() { return ubicacion; }
+
     public void agregarEmpleado(Empleado empleado) {
         empleados.add(empleado);
     }
@@ -33,7 +39,7 @@ class Departamento {
 
     public ReporteDepartamento consultarReporteDepartamento(String codigo) {
         for (ReporteDepartamento r : reportesDepartamento) {
-            if (r.toString().contains(codigo)) return r;
+            if (r.getCodigoReporte().equalsIgnoreCase(codigo)) return r;
         }
         return null;
     }
