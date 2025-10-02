@@ -1,3 +1,5 @@
+package compuwork;
+
 class EmpleadoPermanente extends Empleado {
     public static final String EMPL_PERMANENTE = "Permanente";
 
