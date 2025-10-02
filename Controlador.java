@@ -1,3 +1,6 @@
+package compuwork;
+
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -9,12 +12,17 @@ class Controlador {
     public Empleado buscarEmpleado(String idEmpleado) { return empleados.get(idEmpleado); }
     public void eliminarEmpleado(String idEmpleado) { empleados.remove(idEmpleado); }
 
-    public void crearDepartamento(Departamento departamento) { departamentos.put(departamento.toString(), departamento); }
+    public void crearDepartamento(Departamento departamento) { departamentos.put(departamento.getIdDepartamento(), departamento); }
+
     public Departamento buscarDepartamentoPorNombre(String nombreDepartamento) {
         for (Departamento departamento : departamentos.values()) {
             if (departamento.toString().contains(nombreDepartamento)) return departamento;
         }
         return null;
+    }
+
+    public Departamento buscarDepartamentoPorId(String idDepartamento) {
+        return departamentos.get(idDepartamento);
     }
 
     public void eliminarDepartamentoPorNombre(String nombreDepartamento) {
@@ -29,6 +37,7 @@ class Controlador {
         Empleado empleado = empleados.get(idEmpleado);
         if (empleado != null && departamento != null) {
             empleado.modificarDepartamento(departamento);
+            departamento.agregarEmpleado(empleado);
         }
     }
 }
