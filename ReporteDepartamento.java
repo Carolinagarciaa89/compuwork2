@@ -1,3 +1,5 @@
+package compuwork;
+
 class ReporteDepartamento {
     private String codigoReporte;
     private int volumenProyectos;
@@ -10,6 +12,9 @@ class ReporteDepartamento {
         this.periodo = periodo;
         this.tasaResolucion = tasaResolucion;
     }
+
+    // ✅ getter para búsqueda por código
+    public String getCodigoReporte() { return codigoReporte; }
 
     public String toString() {
         return "ReporteDepartamento: " + codigoReporte +
